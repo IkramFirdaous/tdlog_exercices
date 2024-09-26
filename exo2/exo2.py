@@ -28,3 +28,38 @@ fixed_tests_False = (
     ( "spam",    "eggs"  )
 )
 """
+
+def solution(str, ending):
+
+
+    return str.endswith(ending)
+def run_tests():
+
+
+    fixed_tests_True = (
+        ("samurai", "ai"),
+        ("ninja", "ja"),
+        ("sensei", "i"),
+        ("abc", "abc"),
+        ("abcabc", "bc"),
+        ("fails", "ails"),
+    )
+
+    fixed_tests_False = (
+        ("sumo", "omo"),
+        ("samurai", "ra"),
+        ("abc", "abcd"),
+        ("ails", "fails"),
+        ("this", "fails"),
+        ("spam", "eggs"),
+    )
+
+    for string, ending in fixed_tests_True:
+        assert solution(string, ending) == True, f"Test failed for {string} ends with {ending}"
+
+    # Testing False cases
+    for string, ending in fixed_tests_False:
+        assert solution(string, ending) == False, f"Test failed for {string} ends with {ending}"
+
+    print("All tests passed!")
+run_tests()
